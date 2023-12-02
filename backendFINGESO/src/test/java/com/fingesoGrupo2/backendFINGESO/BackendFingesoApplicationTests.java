@@ -1,10 +1,10 @@
-package com.AdmEdificio.AdminEdificio;
+package com.fingesoGrupo2.backendFINGESO;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class AdminEdificioApplicationTests {
+class BackendFingesoApplicationTests {
 
 	@Test
 	void contextLoads() {

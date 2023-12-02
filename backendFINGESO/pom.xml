@@ -8,11 +8,11 @@
 		<version>3.1.6</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.AdmEdificio</groupId>
-	<artifactId>AdminEdificio</artifactId>
+	<groupId>com.fingesoGrupo2</groupId>
+	<artifactId>backendFINGESO</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>AdminEdificio</name>
-	<description>Administracion de gastos comunes de edificios</description>
+	<name>backendFINGESO</name>
+	<description>Demo project for Spring Boot</description>
 	<properties>
 		<java.version>17</java.version>
 	</properties>

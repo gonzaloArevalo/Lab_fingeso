@@ -1,4 +1,4 @@
-package com.fingesoGrupo2.backendFINGESO;
+package com.FingesoGrupo2.backendFingeso;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

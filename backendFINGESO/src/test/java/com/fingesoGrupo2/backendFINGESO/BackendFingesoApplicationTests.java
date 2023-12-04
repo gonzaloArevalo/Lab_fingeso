@@ -1,4 +1,4 @@
-package com.fingesoGrupo2.backendFINGESO;
+package com.FingesoGrupo2.backendFingeso;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

@@ -1,0 +1,7 @@
+INSERT INTO edificio (id_edificio, departamentos_totales, departamentos_ocupados, id_admin) VALUES
+(101, 20, 5, 3),
+(102, 30, 10, 3),
+(103, 25, 8, 3),
+(104, 40, 15, 2),
+(105, 15, 3, 2),
+(106, 35, 12, 2);

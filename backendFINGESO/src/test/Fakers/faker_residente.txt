@@ -1,0 +1,13 @@
+INSERT INTO residente (id_residente, rut, nombre, contrasenia, correo) VALUES
+(11, 123456789, 'María González', 'passResidente1', 'maria.gonzalez@example.com'),
+(12, 234567890, 'Carlos Rodríguez', 'claveResidente2', 'carlos.rodriguez@example.com'),
+(13, 345678901, 'Ana Martínez', 'passResidente3', 'ana.martinez@example.com'),
+(14, 456789012, 'Juan Pérez', 'claveResidente4', 'juan.perez@example.com'),
+(15, 567890123, 'Sofía López', 'passResidente5', 'sofia.lopez@example.com'),
+(16, 678901234, 'David Fernández', 'claveResidente6', 'david.fernandez@example.com'),
+(17, 789012345, 'Laura Gómez', 'passResidente7', 'laura.gomez@example.com'),
+(18, 890123456, 'Javier Torres', 'claveResidente8', 'javier.torres@example.com'),
+(19, 901234567, 'Eva Ramírez', 'passResidente9', 'eva.ramirez@example.com'),
+(20, 123012345, 'Miguel Martín', 'claveResidente10', 'miguel.martin@example.com'),
+(21, 234123456, 'Luisa Ruiz', 'passResidente11', 'luisa.ruiz@example.com'),
+(22, 345234567, 'Pedro Sánchez', 'claveResidente12', 'pedro.sanchez@example.com');

@@ -1,0 +1,16 @@
+INSERT INTO deuda (id_deuda, descripcion_deuda, monto, id_departamento) VALUES
+(10000001, 'Cuota mensual', 200, 1001),
+(10000002, 'Atraso cuota anterior', 50, 1002),
+(10000003, 'Reparaciones comunes', 100, 1003),
+(10000004, 'Mantenimiento áreas comunes', 75, 1004),
+(10000005, 'Deuda acumulada', 300, 1005),
+(10000006, 'Cuota extraordinaria', 150, 1006),
+(10000007, 'Deuda de servicios', 120, 1007),
+(10000008, 'Reparación estacionamiento', 80, 1008),
+(10000009, 'Atraso cuota mensual', 30, 1009),
+(10000010, 'Pago pendiente', 180, 1010),
+(10000011, 'Cuota especial', 90, 1011),
+(10000012, 'Deuda acumulada', 250, 1012),
+(10000013, 'Mantenimiento bodega', 110, 1013),
+(10000014, 'Cuota extraordinaria', 70, 1014),
+(10000015, 'Atraso cuota mensual', 40, 1015);

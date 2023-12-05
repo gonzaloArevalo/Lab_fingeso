@@ -1,0 +1,7 @@
+INSERT INTO subadministrador (id_subadmin, rut, nombre, contrasenia, correo, id_edificio) VALUES
+(10001, 77777777, 'Subadmin1', 'passSubadmin1', 'subadmin1@example.com', 101),
+(10002, 88888888, 'Subadmin2', 'passSubadmin2', 'subadmin2@example.com', 102),
+(10003, 99999999, 'Subadmin3', 'passSubadmin3', 'subadmin3@example.com', 103),
+(10004, 10101010, 'Subadmin4', 'passSubadmin4', 'subadmin4@example.com', 104),
+(10005, 12121212, 'Subadmin5', 'passSubadmin5', 'subadmin5@example.com', 105),
+(10006, 13131313, 'Subadmin6', 'passSubadmin6', 'subadmin6@example.com', 106);

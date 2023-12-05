@@ -1,0 +1,16 @@
+INSERT INTO departamento (id_departamento, estacionamiento, bodega, id_edificio, id_residente) VALUES
+(1001, TRUE, FALSE, 101, 11),
+(1002, FALSE, TRUE, 102, 12),
+(1003, TRUE, TRUE, 103, 13),
+(1004, FALSE, FALSE, 104, 14),
+(1005, TRUE, TRUE, 105, 15),
+(1006, FALSE, TRUE, 106, 16),
+(1007, TRUE, FALSE, 101, 17),
+(1008, FALSE, FALSE, 102, 18),
+(1009, TRUE, TRUE, 103, 19),
+(1010, FALSE, TRUE, 104, 20),
+(1011, TRUE, TRUE, 105, 21),
+(1012, FALSE, TRUE, 106, 22),
+(1013, TRUE, FALSE, 101, 11),
+(1014, FALSE, TRUE, 102, 12),
+(1015, TRUE, TRUE, 103, 13);

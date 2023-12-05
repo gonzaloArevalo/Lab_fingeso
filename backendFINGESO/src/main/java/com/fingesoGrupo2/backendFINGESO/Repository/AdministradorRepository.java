@@ -1,6 +1,6 @@
-package com.FingesoGrupo2.backendFingeso.Repository;
+package com.fingesoGrupo2.backendFINGESO.Repository;
 
-import com.FingesoGrupo2.backendFingeso.Entity.Administrador;
+import com.fingesoGrupo2.backendFINGESO.Entity.Administrador;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

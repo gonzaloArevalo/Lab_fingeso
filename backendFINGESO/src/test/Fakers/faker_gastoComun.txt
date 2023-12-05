@@ -1,0 +1,7 @@
+INSERT INTO gasto_comun (id_gasto_comun, descripcion, monto, fecha, id_edificio, id_subadmin) VALUES
+(1000001, 'Mantenimiento', 5000, '2023-01-15', 101, 10001),
+(1000002, 'Limpieza', 3000, '2023-02-10', 102, 10002),
+(1000003, 'Seguridad', 6000, '2023-03-20', 103, 10003),
+(1000004, 'Jardinería', 4000, '2023-04-05', 104, 10004),
+(1000005, 'Servicios comunes', 5500, '2023-05-12', 105, 10005),
+(1000006, 'Reparaciones', 7000, '2023-06-25', 106, 10006);

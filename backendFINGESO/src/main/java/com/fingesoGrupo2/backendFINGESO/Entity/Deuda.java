@@ -1,4 +1,4 @@
-package com.FingesoGrupo2.backendFingeso.Entity;
+package com.fingesoGrupo2.backendFINGESO.Entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

@@ -1,0 +1,2 @@
+INSERT INTO administrador (id_admin, rut, nombre, contrasenia, correo) VALUES
+(1, 98765432, 'Gabriel Fernández', 'claveAdmin123', 'gabriel.fernandez@example.com');

@@ -1,0 +1,9 @@
+INSERT INTO personal (id_personal, rut, nombre, contrasenia, correo, sueldo, id_edificio) VALUES
+(100001, 14141414, 'Empleado1', 'passEmpleado1', 'empleado1@example.com', 30000, 101),
+(100002, 15151515, 'Empleado2', 'passEmpleado2', 'empleado2@example.com', 32000, 102),
+(100003, 16161616, 'Empleado3', 'passEmpleado3', 'empleado3@example.com', 35000, 103),
+(100004, 17171717, 'Empleado4', 'passEmpleado4', 'empleado4@example.com', 33000, 104),
+(100005, 18181818, 'Empleado5', 'passEmpleado5', 'empleado5@example.com', 31000, 105),
+(100006, 19191919, 'Empleado6', 'passEmpleado6', 'empleado6@example.com', 34000, 106),
+(100007, 20202020, 'Empleado7', 'passEmpleado7', 'empleado7@example.com', 36000, 101),
+(100008, 21212121, 'Empleado8', 'passEmpleado8', 'empleado8@example.com', 38000, 102);

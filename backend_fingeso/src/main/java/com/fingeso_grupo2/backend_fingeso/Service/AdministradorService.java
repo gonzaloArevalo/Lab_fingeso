@@ -27,4 +27,8 @@ public class AdministradorService {
     public List<Administrador> getAllAdmins() {
         return (List<Administrador>) administradorRepository.findAll();
     }
+
+    public boolean existsById(Long id) {
+        return administradorRepository.existsById(id);
+    }
 }

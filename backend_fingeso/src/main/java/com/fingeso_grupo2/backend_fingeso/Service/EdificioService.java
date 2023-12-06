@@ -21,7 +21,7 @@ public class EdificioService {
     }
 
     // ANIADIR OTRO EDIFICIO A LA BASE DE DATOS
-    public Edificio agregarEdificio(Integer departamentosTotales,Integer departamentosOcupados,long id_admin) {
+    public Edificio addEdificio(Integer departamentosTotales,Integer departamentosOcupados,long id_admin) {
         Administrador admin = administradorService.getAdminByID(id_admin);
         if (admin == null) {
             throw new RuntimeException("No se pudo encontrar al administrador con id: " + id_admin);

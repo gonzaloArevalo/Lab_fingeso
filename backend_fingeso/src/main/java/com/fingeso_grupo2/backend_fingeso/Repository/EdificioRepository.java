@@ -5,6 +5,8 @@ import com.fingeso_grupo2.backend_fingeso.Entity.Edificio;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 public interface EdificioRepository extends CrudRepository<Edificio,Long> {
 }

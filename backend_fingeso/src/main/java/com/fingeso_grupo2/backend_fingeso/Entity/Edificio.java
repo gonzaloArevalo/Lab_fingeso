@@ -21,4 +21,10 @@ public class Edificio {
     @ManyToOne
     @JoinColumn(name = "id_admin")
     private Administrador administrador;
+
+    public Edificio(Integer departamentosTotales, Integer departamentosOcupados, Administrador administrador) {
+        this.departamentosTotales = departamentosTotales;
+        this.departamentosOcupados = departamentosOcupados;
+        this.administrador = administrador;
+    }
 }

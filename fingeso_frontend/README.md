@@ -1,4 +1,4 @@
-# fingeso_frontend
+# Fingeso
 
 ## Build Setup
 

@@ -106,7 +106,13 @@ export default {
           icon: 'mdi-chart-bubble',
           title: 'Inspire',
           to: '/inspire'
-        }
+        },
+
+        {
+          icon: 'mdi-cash-multiple',
+          title: 'Deudas',
+          to: '/DeudasR'
+        },
       ],
       miniVariant: false,
       right: true,

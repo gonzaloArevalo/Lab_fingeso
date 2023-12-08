@@ -40,4 +40,8 @@ public class EdificioService {
     public List<Edificio> getAllEdificios() {
         return (List<Edificio>) edificioRepository.findAll();
     }
+
+    public boolean existsById(Long id) {
+        return edificioRepository.existsById(id);
+    }
 }

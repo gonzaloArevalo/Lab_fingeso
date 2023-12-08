@@ -19,4 +19,11 @@ public class Residente {
     private String nombre;
     private String contrasenia;
     private String correo;
+
+    public Residente(Integer rut, String nombre, String contrasenia, String correo){
+        this.rut = rut;
+        this.nombre = nombre;
+        this.contrasenia = contrasenia;
+        this.correo = correo;
+    }
 }

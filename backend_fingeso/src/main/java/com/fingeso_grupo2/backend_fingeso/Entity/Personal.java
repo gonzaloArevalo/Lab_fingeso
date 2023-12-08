@@ -25,4 +25,12 @@ public class Personal {
     @JoinColumn(name = "id_edificio")
     private Edificio edificio;
 
+    public Personal(Integer rut, String nombre, String contrasenia, String correo, Integer sueldo, Edificio edificio){
+        this.rut = rut;
+        this.nombre = nombre;
+        this.contrasenia = contrasenia;
+        this.correo = correo;
+        this.sueldo = sueldo;
+        this.edificio = edificio;
+    }
 }

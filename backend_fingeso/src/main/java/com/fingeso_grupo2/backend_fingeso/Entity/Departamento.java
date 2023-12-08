@@ -25,4 +25,11 @@ public class Departamento {
     @ManyToOne
     @JoinColumn(name = "id_residente")
     private Residente residente;
+
+    public Departamento(Boolean estacionamiento, Boolean bodega, Edificio edificio, Residente residente){
+        this.estacionamiento = estacionamiento;
+        this.bodega = bodega;
+        this.edificio = edificio;
+        this.residente = residente;
+    }
 }

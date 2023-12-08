@@ -21,7 +21,7 @@ public class EdificioController {
     @GetMapping("/getAll")
     public ResponseEntity<List<Edificio>> getEdificios() {
         List<Edificio> edificios = null;
-        edificios =edificioService.getAllEdificios();
+        edificios = edificioService.getAllEdificios();
         return new ResponseEntity<List<Edificio>>(edificios, HttpStatus.OK);
     }
 

@@ -23,11 +23,17 @@ public class AdministradorService {
         return administradorRepository.findById(id).orElse(null);
     }
 
+    // OBTENER ADMIN POR CORREO
+    public Administrador getAdminByCorreo(String correo) {
+        return administradorRepository.findByCorreo(correo).orElse(null);
+    }
+
     // OBTENER A TODOS LOS ADMINISTRADORES
     public List<Administrador> getAllAdmins() {
         return (List<Administrador>) administradorRepository.findAll();
     }
 
+    // VERIFICA SI EXISTE UN ADMIN SEGUN UN ID
     public boolean existsById(Long id) {
         return administradorRepository.existsById(id);
     }

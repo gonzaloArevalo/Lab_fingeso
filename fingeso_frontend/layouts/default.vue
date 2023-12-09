@@ -113,6 +113,11 @@ export default {
           title: 'Deudas',
           to: '/DeudasR'
         },
+        {
+          icon: 'mdi-account',
+          title: 'SubAdmin',
+          to: '/SubAdmin'
+        },
       ],
       miniVariant: false,
       right: true,

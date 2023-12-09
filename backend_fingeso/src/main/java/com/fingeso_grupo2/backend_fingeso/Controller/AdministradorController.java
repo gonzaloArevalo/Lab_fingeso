@@ -55,4 +55,9 @@ public class AdministradorController {
             return new ResponseEntity<Administrador>(admin,HttpStatus.OK);
         }
     }
+
+
+
+
+
 }

@@ -42,12 +42,14 @@ export default {
   ],
 
   axios : {
-    baseURL: 'http//localhost:8080',
+    //baseURL: 'http//localhost:8080',
+    baseURL: 'http://localhost:8080',
     proxy: true,
   },
 
   proxy: {
-    "/admin/": 'http//localhost:8080',
+    // "/admin/getAll": 'http//localhost:8080',
+    "/admin/getAll": 'http://localhost:8080',
   },
 
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify

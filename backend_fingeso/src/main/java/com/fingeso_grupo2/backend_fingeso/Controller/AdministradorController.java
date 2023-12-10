@@ -15,12 +15,22 @@ public class AdministradorController {
     @Autowired
     private AdministradorService administradorService;
 
+
     @GetMapping("/getAll")
     public ResponseEntity<List<Administrador>> getAdmins() {
         List<Administrador> admins = null;
         admins =administradorService.getAllAdmins();
         return new ResponseEntity<List<Administrador>>(admins,HttpStatus.OK);
     }
+
+
+    /*
+    @GetMapping("/getAll")
+    public List<Administrador> getAdmins() {
+        return administradorService.getAllAdmins();
+    }
+    */
+
 
     @GetMapping("/findByID/{id_admin}")
     public ResponseEntity<?> getAdministradorById(@PathVariable("id_admin") long id_admin) {

@@ -5,6 +5,7 @@ import com.fingeso_grupo2.backend_fingeso.Repository.AdministradorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.LinkedList;
 import java.util.List;
 
 @Service
@@ -28,10 +29,22 @@ public class AdministradorService {
         return administradorRepository.findByCorreo(correo).orElse(null);
     }
 
+
     // OBTENER A TODOS LOS ADMINISTRADORES
     public List<Administrador> getAllAdmins() {
         return (List<Administrador>) administradorRepository.findAll();
     }
+
+
+    /*
+    public List<Administrador> getAllAdmins() {
+        Iterable<Administrador> all = administradorRepository.findAll();
+        List<Administrador> salida = new LinkedList<>();
+        all.forEach(salida::add);
+        return salida;
+    }
+
+     */
 
     // VERIFICA SI EXISTE UN ADMIN SEGUN UN ID
     public boolean existsById(Long id) {

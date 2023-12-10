@@ -1,39 +1,27 @@
-<template>
-  <div>
-    <h2>Login</h2>
-    <form @submit.prevent="login">
-      <label for="email">Correo:</label>
-      <input v-model="loginRequest.email" type="text" id="email" required>
-      <label for="password">Contraseña:</label>
-      <input v-model="loginRequest.password" type="password" id="password" required>
-      <button type="submit">Iniciar sesión</button>
-      <p v-if="error" style="color: red;">{{ error }}</p>
-    </form>
-  </div>
-</template>
-
 <script>
+</script>
+<template>
+  <main>
+    <body style="background-color: rgb(18, 16, 16); height: 100vh; margin: 0; display: flex; align-items: center; justify-content: center;">
+      <div class="general">
+        <div class="content">
+          <div class="header" style="color: white; font-size: 30px; margin-bottom: 20px;">Inicio de sesión</div>
+          <div class="headerDescription" v-if="!register"></div>
+          <div class="inputContainers" v-if="!register" style="margin-bottom: 20px;">
+            <input type="email" style="color: white; background-color: rgb(0, 67, 126);" v-model="username" placeholder="Correo" />
+            <input type="password" style="color: white; background-color: rgb(0, 67, 126);" v-model="password" placeholder="Contraseña" />
+            <button style="color: white;" class="sessionButton" @click="login"> Iniciar Sesión </button>
+          </div>
+        </div>
+      </div>
+    </body>
+  </main>
+</template>
+<script>
+</script>
+
 export default {
-  data() {
-    return {
-      loginRequest: {
-        email: '',
-        password: '',
-      },
-      error: null,
-    };
-  },
-  methods: {
-    async login() {
-      try {
-        const response = await this.$axios.post('/api/login', this.loginRequest);
-        this.$router.push('/inicio');
-      } catch (error) {
-        console.error('Error al iniciar sesión:', error);
-        this.error = 'Credenciales inválidas'; // Mensaje de error personalizado
-      }
-    },
-  },
-};
+    name: 'IndexPage',
+}
 </script>
   

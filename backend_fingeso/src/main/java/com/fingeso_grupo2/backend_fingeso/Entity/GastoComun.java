@@ -28,4 +28,12 @@ public class GastoComun {
     @ManyToOne
     @JoinColumn(name = "id_subadmin")
     private Subadministrador subadministrador;
+
+    public GastoComun(String descripcion, Integer monto, Date fecha, Edificio edificio, Subadministrador subadministrador){
+        this.descripcion = descripcion;
+        this.monto = monto;
+        this.fecha = fecha;
+        this.edificio = edificio;
+        this.subadministrador = subadministrador;
+    }
 }

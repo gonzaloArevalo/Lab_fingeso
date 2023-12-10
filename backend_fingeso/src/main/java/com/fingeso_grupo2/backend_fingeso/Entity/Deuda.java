@@ -21,4 +21,10 @@ public class Deuda {
     @ManyToOne
     @JoinColumn(name = "id_departamento")
     private Departamento departamento;
+
+    public Deuda(String descripcion_deuda, Integer monto, Departamento departamento){
+        this.descripcion_deuda = descripcion_deuda;
+        this.monto = monto;
+        this.departamento = departamento;
+    }
 }

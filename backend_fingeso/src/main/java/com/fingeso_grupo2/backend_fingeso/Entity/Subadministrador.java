@@ -23,4 +23,12 @@ public class Subadministrador {
     @ManyToOne
     @JoinColumn(name = "id_edificio")
     private Edificio edificio;
+
+    public Subadministrador(Integer rut, String nombre, String contrasenia, String correo, Edificio edificio){
+        this.rut = rut;
+        this.nombre = nombre;
+        this.contrasenia = contrasenia;
+        this.correo = correo;
+        this.edificio = edificio;
+    }
 }

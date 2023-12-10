@@ -17,13 +17,13 @@ public class GastoComunService {
     private final EdificioService edificioService;
     private final SubadministradorService subadministradorService;
 
+    @Autowired
     public GastoComunService(GastoComunRepository gastoComunRepository, EdificioService edificioService, SubadministradorService subadministradorService){
         this.gastoComunRepository = gastoComunRepository;
         this.edificioService = edificioService;
         this.subadministradorService = subadministradorService;
     }
 
-    @Autowired
     public GastoComun addGastoComun(String descripcion, Integer monto, Date fecha, long id_edificio, long id_subadministrador) {
         Edificio edif = edificioService.getEdificioByID(id_edificio);
         Subadministrador sub = subadministradorService.getSubadministradorByID(id_subadministrador);

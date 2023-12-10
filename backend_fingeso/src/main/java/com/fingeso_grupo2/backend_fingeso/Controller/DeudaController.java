@@ -38,6 +38,12 @@ public class DeudaController {
         return new ResponseEntity<Deuda>(deuda, HttpStatus.OK);
     }
 
+    @GetMapping("/deudas/residente/{id}")
+    public ResponseEntity<List<Deuda>> getDeudasPorIdResidente(@PathVariable("id") long id_residente) {
+        List<Deuda> deudas = deudaService.getAllDeudasOfDept(id_residente);
+        return new ResponseEntity<List<Deuda>>(deudas,HttpStatus.OK);
+    }
+
     @PostMapping("/register")
     public ResponseEntity<?> registrarDeuda(@RequestBody Deuda deuda) {
         Deuda deuda1 = null;

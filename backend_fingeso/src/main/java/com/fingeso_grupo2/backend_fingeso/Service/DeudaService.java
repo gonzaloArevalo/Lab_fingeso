@@ -40,6 +40,10 @@ public class DeudaService {
         return (List<Deuda>) deudaRepository.findAll();
     }
 
+    public List<Deuda> getAllDeudasOfDept(long id_residente) {
+        return (List<Deuda>) deudaRepository.findByDepartamento_Residente_Id(id_residente);
+    }
+
     public boolean existsById(Long id) {
         return deudaRepository.existsById(id);
     }

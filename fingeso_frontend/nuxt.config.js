@@ -48,8 +48,9 @@ export default {
   },
 
   proxy: {
-    // "/admin/getAll": 'http//localhost:8080',
     "/admin/getAll": 'http://localhost:8080',
+    "/admin/login/": 'http://localhost:8080',
+    "/admin/findByID/": 'http://localhost:8080',
   },
 
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify

@@ -16,6 +16,17 @@ public class ResidenteController {
     @Autowired
     private ResidenteService residenteService;
 
+    @GetMapping("/login/{correo}/{contrasenia}")
+    public ResponseEntity<?> loginResidente(@PathVariable("correo") String correo,
+                                        @PathVariable("contrasenia") String contrasenia) {
+        Residente residente = residenteService.getResidenteByCorreo(correo);
+        if (residente.getContrasenia().equals(contrasenia)) {
+            return new ResponseEntity<Residente>(residente,HttpStatus.OK);
+        } else {
+            return new ResponseEntity<String>("Correo o contrasenia invalidos.",HttpStatus.NOT_FOUND);
+        }
+    }
+
     @GetMapping("/getAll")
     public ResponseEntity<List<Residente>> getResidentes() {
         List<Residente> residentes;

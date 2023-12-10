@@ -3,6 +3,7 @@ package com.fingeso_grupo2.backend_fingeso.Controller;
 import com.fingeso_grupo2.backend_fingeso.Entity.Administrador;
 import com.fingeso_grupo2.backend_fingeso.Service.AdministradorService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.kafka.KafkaProperties;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -19,18 +20,20 @@ public class AdministradorController {
     @GetMapping("/getAll")
     public ResponseEntity<List<Administrador>> getAdmins() {
         List<Administrador> admins = null;
-        admins =administradorService.getAllAdmins();
+        admins = administradorService.getAllAdmins();
         return new ResponseEntity<List<Administrador>>(admins,HttpStatus.OK);
     }
 
-
-    /*
-    @GetMapping("/getAll")
-    public List<Administrador> getAdmins() {
-        return administradorService.getAllAdmins();
+    @GetMapping("/login/{correo}/{contrasenia}")
+    public ResponseEntity<?> loginAdmin(@PathVariable("correo") String correo,
+                                        @PathVariable("contrasenia") String contrasenia) {
+        Administrador admin = administradorService.getAdminByCorreo(correo);
+        if (admin.getContrasenia().equals(contrasenia)) {
+            return new ResponseEntity<Administrador>(admin,HttpStatus.OK);
+        } else {
+            return new ResponseEntity<String>("Correo o contrasenia invalidos.",HttpStatus.NOT_FOUND);
+        }
     }
-    */
-
 
     @GetMapping("/findByID/{id_admin}")
     public ResponseEntity<?> getAdministradorById(@PathVariable("id_admin") long id_admin) {

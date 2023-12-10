@@ -11,6 +11,4 @@ import java.util.List;
 
 @Repository
 public interface DeudaRepository extends CrudRepository<Deuda,Long> {
-
-    List<Deuda> findByDepartamento_Residente_Id(long id_residente);
 }

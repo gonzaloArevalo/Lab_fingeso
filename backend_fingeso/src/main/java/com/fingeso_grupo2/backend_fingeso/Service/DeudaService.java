@@ -8,6 +8,7 @@ import com.fingeso_grupo2.backend_fingeso.Repository.DeudaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -41,7 +42,18 @@ public class DeudaService {
     }
 
     public List<Deuda> getAllDeudasOfDept(long id_residente) {
-        return (List<Deuda>) deudaRepository.findByDepartamento_Residente_Id(id_residente);
+        List<Deuda> deudas = getAllDeudas();
+        List<Deuda> salida = new ArrayList<>();
+        for (int i = 0;i < deudas.size();i++) {
+            if (deudas.get(i).getDepartamento().getResidente().getId_residente() == id_residente) {
+                salida.add(deudas.get(i));
+            }
+        }
+        if (!salida.isEmpty()) {
+            return salida;
+        } else {
+            return null;
+        }
     }
 
     public boolean existsById(Long id) {

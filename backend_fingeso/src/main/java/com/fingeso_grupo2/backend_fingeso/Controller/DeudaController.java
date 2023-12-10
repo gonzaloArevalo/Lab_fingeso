@@ -38,8 +38,8 @@ public class DeudaController {
         return new ResponseEntity<Deuda>(deuda, HttpStatus.OK);
     }
 
-    @GetMapping("/deudas/residente/{id}")
-    public ResponseEntity<List<Deuda>> getDeudasPorIdResidente(@PathVariable("id") long id_residente) {
+    @GetMapping("/deudasPorResidente/{id_residente}")
+    public ResponseEntity<List<Deuda>> getDeudasPorIdResidente(@PathVariable("id_residente") long id_residente) {
         List<Deuda> deudas = deudaService.getAllDeudasOfDept(id_residente);
         return new ResponseEntity<List<Deuda>>(deudas,HttpStatus.OK);
     }

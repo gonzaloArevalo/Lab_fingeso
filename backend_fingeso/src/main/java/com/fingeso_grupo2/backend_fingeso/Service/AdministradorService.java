@@ -29,22 +29,10 @@ public class AdministradorService {
         return administradorRepository.findByCorreo(correo).orElse(null);
     }
 
-
     // OBTENER A TODOS LOS ADMINISTRADORES
     public List<Administrador> getAllAdmins() {
         return (List<Administrador>) administradorRepository.findAll();
     }
-
-
-    /*
-    public List<Administrador> getAllAdmins() {
-        Iterable<Administrador> all = administradorRepository.findAll();
-        List<Administrador> salida = new LinkedList<>();
-        all.forEach(salida::add);
-        return salida;
-    }
-
-     */
 
     // VERIFICA SI EXISTE UN ADMIN SEGUN UN ID
     public boolean existsById(Long id) {

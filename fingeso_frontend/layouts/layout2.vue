@@ -6,7 +6,7 @@
         color="blue">
         
         <v-container class="text-center">
-          <v-toolbar-title> Titulo </v-toolbar-title> 
+          <v-toolbar-title> ADCe </v-toolbar-title> 
         </v-container>
 
           <v-spacer />

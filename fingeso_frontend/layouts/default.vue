@@ -28,7 +28,7 @@ export default {
       clipped: false,
       drawer: false,
       fixed: false,
-      title: "xd",
+      title: "ADCe",
     };
   },
 };

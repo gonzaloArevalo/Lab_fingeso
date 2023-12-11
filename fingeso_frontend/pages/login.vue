@@ -41,7 +41,23 @@ export default {
         if (respuesta) {
           // Si la autenticación es exitosa, navegar a la página destino
           this.user = respuesta.data;
-          this.$router.push({ path: `/user/${this.user.nombre}`, params: { user: this.user, userType: this.tipoUsuario } });
+          switch (this.tipoUsuario) {
+            case 1:
+              this.$router.push({ name: 'user1', params: { user: this.user } });
+              break;
+            case 2:
+            this.$router.push({ name: 'user2', params: { user: this.user } });
+              break;
+            case 3:
+            this.$router.push({ name: 'user3', params: { user: this.user } });
+              break;
+            case 4:
+            this.$router.push({ name: 'user4', params: { user: this.user } });
+              break;
+            default:
+              // Lógica para un tipo de usuario desconocido, si es necesario
+              break;
+          }
         } else {
           // Mostrar mensaje de error si la autenticación falla
           this.errorMensaje = 'Correo o contraseña inválidos';

@@ -1,10 +1,8 @@
 
 <template>
-<body>
     
-    <h1> Hola id : {{param}} con nombre {{ items.nombre }} </h1>
-    Tu correo es {{ items.correo }}
-</body>
+    <h1> Hola id : {{param}} con nombre {{ items.nombre }} y con correo {{ items.correo }} </h1>
+
 </template>
 
 

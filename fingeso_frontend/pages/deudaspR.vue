@@ -4,7 +4,7 @@
         <table>
             <th>Monto</th>
             <td>
-                <span>{{ items.monto }}</span>
+                <span>{{ items }}</span>
             </td>
         </table>
     </div>
@@ -16,6 +16,7 @@ export default{
     layout: 'layout2',
     data(){
         return{
+            id: '',
             items: [],
         };
     },
@@ -26,8 +27,7 @@ export default{
     methods:{
         getData: async function () {
             try{
-                
-                let response = await this.$axios.get('/deuda/deudasPorResidente'+ this.id);
+                let response = await this.$axios.get('/deuda/deudasPorResidente/'+ this.id);
                 this.items = response.data;
                 console.log(response);
             }catch (error) {

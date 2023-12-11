@@ -17,13 +17,9 @@ export default {
 </script>
 
 
-
-
 <template>
 
-
     <h1 v-if="user"> HOLA {{ user }}</h1>
-
-
+    
     
 </template>

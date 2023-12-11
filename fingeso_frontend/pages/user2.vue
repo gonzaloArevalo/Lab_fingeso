@@ -11,14 +11,13 @@ export default {
   created() {
     // Accede a los parámetros de la ruta en el ciclo de vida created
     this.user = this.$route.params.user;
+    this.id = this.$route.params.user.id_residente;
 
     // Llama al método para obtener datos
   },
   methods:{
-    Deudas(){
-      this.$router.push({name: 'deudaspR', params:{name: this.id}});
-      console.log(this.id);
-      this.$router.push('/deudaspR');
+    async Deudas(){
+      this.$router.push({name: 'deudaspR', params:{id: this.id}});
     },
   },
 };
@@ -40,9 +39,7 @@ export default {
   </p>
   <br>
   <br>
-  <v-btn width="300" height="50" v-on:click="Deudas()">
-    Deudas
-  </v-btn>
+  <v-btn width="300" height="50" @click="Deudas()"> Deudas </v-btn>
 </div>
 </template>
 

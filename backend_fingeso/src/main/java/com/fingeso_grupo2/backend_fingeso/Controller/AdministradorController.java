@@ -28,8 +28,12 @@ public class AdministradorController {
     public ResponseEntity<?> loginAdmin(@PathVariable("correo") String correo,
                                         @PathVariable("contrasenia") String contrasenia) {
         Administrador admin = administradorService.getAdminByCorreo(correo);
-        if (admin.getContrasenia().equals(contrasenia)) {
-            return new ResponseEntity<Administrador>(admin,HttpStatus.OK);
+        if (admin != null) {
+            if (admin.getContrasenia().equals(contrasenia)) {
+                return new ResponseEntity<Administrador>(admin,HttpStatus.OK);
+            } else {
+                return new ResponseEntity<String>("Correo o contrasenia invalidos.",HttpStatus.NOT_FOUND);
+            }
         } else {
             return new ResponseEntity<String>("Correo o contrasenia invalidos.",HttpStatus.NOT_FOUND);
         }

@@ -15,6 +15,7 @@
                     </v-list>
                 </v-card>
             </v-container>
+            <v-btn width: 300px heigth: 50px href = "https://login.portal.bancochile.cl/bancochile-web/persona/login/#/login">Pagar</v-btn>
         </v-app>
 
 </template>

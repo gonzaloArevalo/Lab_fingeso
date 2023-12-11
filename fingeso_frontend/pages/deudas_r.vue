@@ -2,13 +2,23 @@
     <div class="container">
         <div class="col-sm">
           <h1> Lista de Deudas</h1>
-          <ul>
-            <li v-for="(item, index) in items" :key="index">
-              <a>
+          <v-btn class="large-text" width="300" height="50" @click="Pagar">
+            Pagar
+          </v-btn>
+          <table>
+            <tr>
+              <th>Montos</th>
+              <th>Fechas</th>
+            </tr>
+            <tr v-for="(item, index) in items" :key="index">
+              <td class="center-cell-text">
                 <button><span>{{ item.monto }} </span></button>
-              </a>
-            </li>
-          </ul>
+              </td>
+              <td class="center-cell-text">
+                <span>{{obtenerFecha()}}</span>
+              </td>
+            </tr>
+          </table>
         </div>
     </div>
 </template>
@@ -36,7 +46,17 @@ export default {
             } catch (error) {
                 console.log('error', error);
             }
-        }
+        },
+        Pagar(){
+            console.log("Pagar");
+            window.open('https://login.portal.bancochile.cl/bancochile-web/persona/login/#/login', '_blank');
+        },
+        obtenerFecha() {
+          const dueDate = new Date();
+          dueDate.setMonth(dueDate.getMonth() + 1);
+          dueDate.setDate(1);
+          return dueDate.toLocaleDateString();
+        },
     },
     //Función que se ejecuta al cargar el componente
     created () {
@@ -53,11 +73,24 @@ export default {
     /* align-items: center; */
 }
 
-.big-number {
-    align-self: flex-start;
-    margin: 0;
-    padding: 0;
-    font-size: 56px;
-    text-align: left;
+.center-cell-text {
+  text-align: center;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  max-width: 1000px;
+  margin-top: 50px;
+}
+tr{
+  height: 60px;
+}
+
+th, td {
+  border: 1px solid black;
+}
+.large-text {
+  font-size: 50px;
 }
 </style>

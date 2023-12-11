@@ -57,6 +57,7 @@ export default {
     "/subadmin/login/": 'http://localhost:8080',
     "/residente/login/": 'http://localhost:8080',
     "/personal/login/": 'http://localhost:8080',
+    "/edificio/getAll": 'http://localhost:8080',
   },
 
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify

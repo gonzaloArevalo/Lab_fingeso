@@ -1,6 +1,9 @@
 <template>
   <v-container fluid>
-    <h1 v-if="tipoUsuario"> TIPO USUARIO: {{ tipoUsuario }}</h1>
+    <h1 v-if="tipoUsuario === 1"> Vista de admin </h1>
+    <h1 v-if="tipoUsuario === 2"> Vista de residente </h1>
+    <h1 v-if="tipoUsuario === 3"> Vista de subadmin </h1>
+    <h1 v-if="tipoUsuario === 4"> Vista de personal </h1>
     <v-row justify="center">
       <v-col cols="12" sm="8" md="6">
         <v-card class="elevation-12 pa-8" outlined>

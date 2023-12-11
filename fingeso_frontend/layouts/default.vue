@@ -1,7 +1,8 @@
 <template>
   <v-app>
     
-    <v-app-bar :clipped-left="clipped" fixed app>  
+    <v-app-bar :clipped-left="clipped" fixed app
+    color="blue">  
       <v-toolbar-title>{{ title }}</v-toolbar-title>
       <v-spacer />
       

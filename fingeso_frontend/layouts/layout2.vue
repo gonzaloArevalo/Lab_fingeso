@@ -2,7 +2,8 @@
   <v-app>
         <v-app-bar 
         height="60px"
-        app>
+        app
+        color="blue">
         
         <v-container class="text-center">
           <v-toolbar-title> Titulo </v-toolbar-title> 

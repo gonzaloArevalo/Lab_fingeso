@@ -51,6 +51,9 @@ export default {
     "/admin/getAll": 'http://localhost:8080',
     "/admin/login/": 'http://localhost:8080',
     "/admin/findByID/": 'http://localhost:8080',
+    "/deudas/getAll": 'http://localhost:8080',
+    "/deudas/deudasPorResidente": 'http://localhost:8080',
+    "/deudas/findByID": 'http://localhost:8080',
   },
 
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify

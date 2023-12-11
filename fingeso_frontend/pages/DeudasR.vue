@@ -9,7 +9,7 @@
        </v-row>
        <v-row>
          <v-col cols="12">
-           <v-data-table :headers="headers" :items="items">
+           <v-data-table :headers="headers" :items= deuda>
              <template v-slot:item.fecha="{ item }">
                {{ obtenerFecha(item.cuota, items.indexOf(item)) }}
              </template>
@@ -21,7 +21,7 @@
    
    <script>
 import DeudasRe from '../components/DeudasRe.vue';
-/* import axios from "axios"; */
+import axios from "axios";
 
 
    export default {
@@ -33,47 +33,32 @@ import DeudasRe from '../components/DeudasRe.vue';
                 { text: "Cuota", value: "cuota" },
                 { text: "Fecha", value: "fecha" },
             ],
-            items: [
+            /* items: [
                 { cuota: 1000, fecha: null },
                 { cuota: 1000, fecha: null },
                 { cuota: 1000, fecha: null },
-            ],
-            //items: [],
+            ], */
+            deuda: [],
         };
     },
-    /* mounted: {
-      //aqui se obtiene la informacion para las tablas
-      this.getData();
-    }, */
     computed: {
       totalactual(){
-        if(this.items.length === 0){
-          return 0;
-        }
-        else{
-          return this.items[0].cuota;
-        }
+        return this.deuda.length === 0 ? 0 : this.deuda[0].cuota;
       },
-      cantidadTotal() {
-        if (this.items.length === 0) {
-          return 0;
-        }
-         return this.items.reduce((total, item) => total + item.cuota, 0);
-        }, 
       },
     methods: {
         obtenerFecha(cuota, monthDifference) {
             const dueDate = new Date();
             dueDate.setMonth(dueDate.getMonth() + monthDifference);
             dueDate.setDate(1);
-            //dueDate.setMonth(dueDate.getDate());
             return dueDate.toLocaleDateString();
           },
         pagar() {
             // logica para pagar
             console.log("Pagar");
+            window.location.href = 'https://login.portales.bancochile.cl/login?state=hKFo2SA0el9rYmtodjYtZEpVdWRvVUstREtwNEIyRk1OcGRYc6FupWxvZ2luo3RpZNkgUC1hTkJUYkNnajA5SkxKcEdYX2tNQzZZb28yeWJGdkejY2lk2SBmUDdKVmRvcGV2VGFvZmJYcmZrMUZUZW9sVTVYTDE2NQ&client=fP7JVdopevTaofbXrfk1FTeolU5XL165&protocol=oauth2&response_type=code&scope=openid%20email%20profile&redirect_uri=https%3A%2F%2Fportalpersonas.bancochile.cl%3A443%2Fmibancochile-web%2Fredirect_uri&nonce=1qN_t9F5pbbt2ebPMwdBO31Xf8g1kHSJpIh5pfvYYlg';
           },
-        getData(){
+        /* getData(){
           axios.get("YOUR_API_URL").then((response) => {
             this.items = response.data.map((item) => {
               return {
@@ -82,8 +67,27 @@ import DeudasRe from '../components/DeudasRe.vue';
               });
 
             });
-          },
+          }, */
+        getData: async function() {
+          let response = await this.$axios.get("/deudas/getAll");
+          this.deuda = [];
+          for (let item of response.data) {
+            let cuota = item.cuota;
+            for (let i = 0; i < 12; i++){
+              const dueDate = new Date();
+              dueDate.setMonth(dueDate.getMonth() + i);
+              dueDate.setDate(1);
+              this.deuda.push({
+                cuota: cuota,
+                fecha: dueDate.toLocaleDateString(),
+              });
+            }
+          } 
         },
+        created:function(){
+          this.getData();
+        }
+    },
     components: { DeudasRe }
 };
    </script>

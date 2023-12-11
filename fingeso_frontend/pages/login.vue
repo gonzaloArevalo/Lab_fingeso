@@ -1,5 +1,6 @@
 <template>
   <v-container fluid>
+    <h1 v-if="tipoUsuario"> TIPO USUARIO: {{ tipoUsuario }}</h1>
     <v-row justify="center">
       <v-col cols="12" sm="8" md="6">
         <v-card class="elevation-12 pa-8" outlined>
@@ -23,24 +24,24 @@
   
 <script>
 export default {
+  name: "login",
   data() {
     return {
+      tipoUsuario: this.$route.params.userType,
       correo: '',
       contrasena: '',
-      admin: null,
+      user: null,
       errorMensaje: '', // Variable para almacenar el mensaje de error
     };
   },
   methods: {
-    async iniciarSesion() {
+    async autenticar(url) {
       try {
-        // Lógica de autenticación (puedes usar Vuex, una API, etc.)
-        const respuesta = await this.$axios.get("/admin/login/" + this.correo + "/" + this.contrasena);
-        
+        const respuesta = await this.$axios.get(url);
         if (respuesta) {
           // Si la autenticación es exitosa, navegar a la página destino
-          this.admin = respuesta.data;
-          this.$router.push({ name: 'prueba', params: { correo: this.correo, contrasena: this.contrasena } });
+          this.user = respuesta.data;
+          this.$router.push({ path: `/user/${this.user.nombre}`, params: { user: this.user, userType: this.tipoUsuario } });
         } else {
           // Mostrar mensaje de error si la autenticación falla
           this.errorMensaje = 'Correo o contraseña inválidos';
@@ -49,6 +50,25 @@ export default {
         console.error('Error durante la autenticación:', error);
         // Puedes establecer un mensaje de error genérico en caso de un fallo durante la autenticación
         this.errorMensaje = 'Correo o contraseña inválidos';
+      }
+    },
+    async iniciarSesion() {
+      switch (this.tipoUsuario) {
+        case 1:
+          await this.autenticar("/admin/login/" + this.correo + "/" + this.contrasena);
+          break;
+        case 2:
+          await this.autenticar("/residente/login/" + this.correo + "/" + this.contrasena);
+          break;
+        case 3:
+          await this.autenticar("/subadmin/login/" + this.correo + "/" + this.contrasena);
+          break;
+        case 4:
+          await this.autenticar("/personal/login/" + this.correo + "/" + this.contrasena);
+          break;
+        default:
+          // Lógica para un tipo de usuario desconocido, si es necesario
+          break;
       }
     },
   },

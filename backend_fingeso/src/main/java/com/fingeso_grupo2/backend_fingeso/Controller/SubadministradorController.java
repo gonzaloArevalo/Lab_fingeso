@@ -1,5 +1,6 @@
 package com.fingeso_grupo2.backend_fingeso.Controller;
 
+import com.fingeso_grupo2.backend_fingeso.Entity.Residente;
 import com.fingeso_grupo2.backend_fingeso.Entity.Subadministrador;
 import com.fingeso_grupo2.backend_fingeso.Service.EdificioService;
 import com.fingeso_grupo2.backend_fingeso.Service.SubadministradorService;
@@ -11,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/subadministrador")
+@RequestMapping("/subadmin")
 public class SubadministradorController {
 
     @Autowired
@@ -35,6 +36,21 @@ public class SubadministradorController {
         }
 
         return new ResponseEntity<Subadministrador>(subadministrador, HttpStatus.OK);
+    }
+
+    @GetMapping("/login/{correo}/{contrasenia}")
+    public ResponseEntity<?> loginSubadmin(@PathVariable("correo") String correo,
+                                            @PathVariable("contrasenia") String contrasenia) {
+        Subadministrador subadmin = subadministradorService.getSubadministradorByCorreo(correo);
+        if (subadmin != null) {
+            if (subadmin.getContrasenia().equals(contrasenia)) {
+                return new ResponseEntity<Subadministrador>(subadmin,HttpStatus.OK);
+            } else {
+                return new ResponseEntity<String>("Correo o contrasenia invalidos.",HttpStatus.NOT_FOUND);
+            }
+        } else {
+            return new ResponseEntity<String>("Correo o contrasenia invalidos.",HttpStatus.NOT_FOUND);
+        }
     }
 
     @PostMapping("/register")

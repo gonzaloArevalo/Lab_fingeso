@@ -54,6 +54,9 @@ export default {
     "/deuda/getAll": 'http://localhost:8080',
     "/deuda/deudasPorResidente/": 'http://localhost:8080',
     "/deuda/findByID/": 'http://localhost:8080',
+    "/subadmin/login/": 'http://localhost:8080',
+    "/residente/login/": 'http://localhost:8080',
+    "/personal/login/": 'http://localhost:8080',
   },
 
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
@@ -74,6 +77,8 @@ export default {
       }
     }
   },
+
+  
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {

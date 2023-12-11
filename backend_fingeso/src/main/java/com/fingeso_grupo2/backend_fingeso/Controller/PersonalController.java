@@ -2,6 +2,7 @@ package com.fingeso_grupo2.backend_fingeso.Controller;
 
 
 import com.fingeso_grupo2.backend_fingeso.Entity.Personal;
+import com.fingeso_grupo2.backend_fingeso.Entity.Subadministrador;
 import com.fingeso_grupo2.backend_fingeso.Service.EdificioService;
 import com.fingeso_grupo2.backend_fingeso.Service.PersonalService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -46,6 +47,21 @@ public class PersonalController {
             return new ResponseEntity<>("No se encontró el administrador con correo: " + correo,HttpStatus.NOT_FOUND);
         } else {
             return new ResponseEntity<Personal>(personal, HttpStatus.OK);
+        }
+    }
+
+    @GetMapping("/login/{correo}/{contrasenia}")
+    public ResponseEntity<?> loginPersonal(@PathVariable("correo") String correo,
+                                           @PathVariable("contrasenia") String contrasenia) {
+        Personal personal = personalService.getPersonalByCorreo(correo);
+        if (personal != null) {
+            if (personal.getContrasenia().equals(contrasenia)) {
+                return new ResponseEntity<Personal>(personal,HttpStatus.OK);
+            } else {
+                return new ResponseEntity<String>("Correo o contrasenia invalidos.",HttpStatus.NOT_FOUND);
+            }
+        } else {
+            return new ResponseEntity<String>("Correo o contrasenia invalidos.",HttpStatus.NOT_FOUND);
         }
     }
 

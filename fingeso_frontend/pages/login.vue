@@ -25,6 +25,7 @@
 <script>
 export default {
   name: "login",
+  layout: 'layout2',
   data() {
     return {
       tipoUsuario: this.$route.params.userType,

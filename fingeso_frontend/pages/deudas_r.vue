@@ -26,9 +26,6 @@ export default {
             items: []
         }
     },
-    async created() {
-      await this.getData();
-    },
     methods: {
         //Función asíncrona para consultar los datos
         getData: async function () {
@@ -42,9 +39,9 @@ export default {
         }
     },
     //Función que se ejecuta al cargar el componente
-    //77created: function () {
-        //this.getData();
-    //}
+    created () {
+        this.getData();
+    }
 
 }
 </script>

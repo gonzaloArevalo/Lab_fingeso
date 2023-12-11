@@ -1,57 +1,41 @@
-<template>
 
-    <div class ="contenedorTres">
-      <div class ="col-sm">
-        <div v-for="(item, index) in items" :key="index">
-          <h1> </h1>
-          <a v-bind:href="'user1/'+item.id_deuda">
-          <button class="botonDos"><span>{{item.descripcion_deuda}} y {{ item.id_deuda }}</span></button>
-          </a>
-        </div>
-      </div>
-      <div class ="col-sm" style="padding-top:30px">
-          <a href="#">
-            <button type="button" class="btn btn-success">Nueva Emergencia</button>
-          </a>
-      </div>
-  
-      </div>
-     
-  </template>
-  
-  <style>
-  .scrollDiv {
-      height: 100vh;
-      max-height: 100vh;
-  }
-  </style>
-  
-  <script>
-  export default {
-    layout: 'layout2',
-      //Función que contiene los datos del componente
-      data() {
-          return{
-              //Lista de ítems a mostrar
-              items:[]
-          }
-      },
-      methods:{
-          //Función asíncrona para consultar los datos
-          getData: async function(){
-              try {
-                  let response = await this.$axios.get('/deuda/getAll');
-                  this.items  = response.data;
-                  console.log(response);
-              } catch (error) {
-                  console.log('error', error);
-              }
-          }
-      },
-      //Función que se ejecuta al cargar el componente
-      created:function(){
-          this.getData();
+
+<script>
+export default {
+  name: 'prueba',
+  data() {
+    return {
+      correo: '',
+      contrasena: '',
+      admin: null,
+      number: 2,
+    };
+  },
+  methods: {
+    async getData() {
+      try {
+        console.log(this.number);
+        let response = await this.$axios.get("/admin/findByID/" + this.number);
+        this.admin = response.data;
+        console.log(response);
+      } catch (error) {
+        console.log('error', error);
       }
-  
-  }
-  </script>
+    },
+  },
+  created() {
+    // Accede a los parámetros de la ruta en el ciclo de vida created
+    this.correo = this.$route.params.correo;
+    this.contrasena = this.$route.params.contrasena;
+
+    // Llama al método para obtener datos
+    this.getData();
+  },
+};
+</script>
+
+<template>
+  <div>
+    <h1 v-if="admin"> HOLA {{ admin.nombre }} tu correo es {{ correo }} y tu pass {{ contrasena }} </h1>
+  </div>
+</template>

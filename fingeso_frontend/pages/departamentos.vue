@@ -7,13 +7,22 @@
           <v-list-item-group v-for="dept in depts" :key="dept.id_departamento">
             <v-list-item>
               <v-list-item-content>
-                <v-list-item-title>Departamento N°: {{ dept.id_departamento }}</v-list-item-title>
+                <v-list-item-title
+                  >Departamento N°:
+                  {{ dept.id_departamento }}</v-list-item-title
+                >
                 <v-list-item-subtitle>
                   Residente: {{ dept.residente.nombre }}
                 </v-list-item-subtitle>
-                <v-list-item-subtitle v-if="dept.estacionamiento">Estacionamiento: Sí</v-list-item-subtitle>
-                <v-list-item-subtitle v-else>Estacionamiento: No</v-list-item-subtitle>
-                <v-list-item-subtitle v-if="dept.bodega">Bodega: Sí</v-list-item-subtitle>
+                <v-list-item-subtitle v-if="dept.estacionamiento"
+                  >Estacionamiento: Sí</v-list-item-subtitle
+                >
+                <v-list-item-subtitle v-else
+                  >Estacionamiento: No</v-list-item-subtitle
+                >
+                <v-list-item-subtitle v-if="dept.bodega"
+                  >Bodega: Sí</v-list-item-subtitle
+                >
                 <v-list-item-subtitle v-else>Bodega: No</v-list-item-subtitle>
               </v-list-item-content>
             </v-list-item>
@@ -26,11 +35,11 @@
 
 <script>
 export default {
-  layout: 'layout2',
-  name: 'departamentos',
+  layout: "layout2",
+  name: "departamentos",
   data() {
     return {
-      idEdificio: '',
+      idEdificio: "",
       depts: [],
     };
   },
@@ -41,12 +50,14 @@ export default {
   methods: {
     async getData() {
       try {
-        let response = await this.$axios.get('/departamento/deptsPorEdificio/' + this.idEdificio);
+        let response = await this.$axios.get(
+          "/departamento/deptsPorEdificio/" + this.idEdificio
+        );
         this.depts = response.data;
       } catch (error) {
-        console.log('error', error);
+        console.log("error", error);
       }
     },
   },
-}
+};
 </script>

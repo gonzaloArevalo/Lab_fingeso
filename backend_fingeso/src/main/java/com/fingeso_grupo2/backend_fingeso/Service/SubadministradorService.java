@@ -21,6 +21,7 @@ public class SubadministradorService {
         this.edificioService = edificioService;
     }
 
+    // AÑADE UN SUBADMINISTRADOR
     public Subadministrador addSubadministrador(Integer rut, String nombre, String contrasenia, String correo, long id_edificio) {
         Edificio edificio = edificioService.getEdificioByID(id_edificio);
         if (edificio == null) {
@@ -31,18 +32,22 @@ public class SubadministradorService {
         }
     }
 
+    // OBTIENE UN SUBADMINISTRADOR SEGUN SU ID
     public Subadministrador getSubadministradorByID(long id) {
         return subadministradorRepository.findById(id).orElse(null);
     }
 
+    // OBTIENE UN SUBADMINISTRADOR SEGUN SU CORREO
     public Subadministrador getSubadministradorByCorreo(String correo) {
         return subadministradorRepository.findByCorreo(correo).orElse(null);
     }
 
+    // OBTIENE A TODOS LOS USUARIOS SUBADMINISTRADOR
     public List<Subadministrador> getAllSubadministradores() {
         return (List<Subadministrador>) subadministradorRepository.findAll();
     }
 
+    // VERIFICA SI EXISTE UN SUBADMINISTRADOR SEGUN SU ID
     public boolean existsById(Long id) {
         return subadministradorRepository.existsById(id);
     }

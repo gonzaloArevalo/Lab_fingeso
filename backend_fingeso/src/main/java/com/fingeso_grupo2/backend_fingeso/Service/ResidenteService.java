@@ -18,18 +18,22 @@ public class ResidenteService {
         return residenteRepository.save(residente);
     }
 
+    // OBTIENE UN USUARIO RESIDENTE POR SU ID
     public Residente getResidenteByID(long id){
         return residenteRepository.findById(id).orElse(null);
     }
 
+    // OBTIENE A TODOS LOS USUARIOS RESIDENTE
     public List<Residente> getAllResidentes(){
         return (List<Residente>) residenteRepository.findAll();
     }
 
+    // OBTIENE UN USUARIO RESIDENTE POR SU CORREO
     public Residente getResidenteByCorreo(String correo) {
         return residenteRepository.findByCorreo(correo).orElse(null);
     }
 
+    // VERIFICA SI EXISTE UN USUARIO RESIDENTE SEGUN SU CORREO
     public boolean existsById(Long id) {
         return residenteRepository.existsById(id);
     }

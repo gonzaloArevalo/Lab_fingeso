@@ -23,6 +23,7 @@ public class DeudaService {
         this.departamentoService = departamentoService;
     }
 
+    // AÑADE UNA DEUDA
     public Deuda addDeuda(String descripcion_deuda, Integer monto, long id_departamento) {
         Departamento dep = departamentoService.getDepartamentoByID(id_departamento);
         if (dep == null) {
@@ -33,14 +34,17 @@ public class DeudaService {
         }
     }
 
+    // OBTIENE UNA DEUDA SEGUN SU ID
     public Deuda getDeudaById(long id) {
         return deudaRepository.findById(id).orElse(null);
     }
 
+    // OBTIENE TODAS LAS DEUDAS
     public List<Deuda> getAllDeudas() {
         return (List<Deuda>) deudaRepository.findAll();
     }
 
+    // OBTIENE TODAS LAS DEUDAS DE UN DEPARTAMENTO
     public List<Deuda> getAllDeudasOfDept(long id_residente) {
         List<Deuda> deudas = getAllDeudas();
         List<Deuda> salida = new ArrayList<>();
@@ -56,6 +60,7 @@ public class DeudaService {
         }
     }
 
+    // VERIFICA SI EXISTE UNA DEUDA SEGUN SU ID
     public boolean existsById(Long id) {
         return deudaRepository.existsById(id);
     }

@@ -24,6 +24,7 @@ public class DepartamentoService {
         this.edificioService = edificioService;
     }
 
+    // AÑADE UN DEPARTAMENTO
     public Departamento addDepartamento(Boolean estacionamiento, Boolean bodega, long id_edificio, long id_residente) {
         Edificio edif = edificioService.getEdificioByID(id_edificio);
         Residente res = residenteService.getResidenteByID(id_residente);
@@ -37,18 +38,22 @@ public class DepartamentoService {
         }
     }
 
+    // OBTIENE UN DEPARTAMENTO SEGUN SU ID
     public Departamento getDepartamentoByID(long id) {
         return departamentoRepository.findById(id).orElse(null);
     }
 
+    // OBTIENE TODOS LOS DEPARTAMENTOS
     public List<Departamento> getAllDepartamentos() {
         return (List<Departamento>) departamentoRepository.findAll();
     }
 
+    // VERIFICA SI UN DEPARTAMENTO EXISTE SEGUN SU ID
     public boolean existsById(Long id) {
         return departamentoRepository.existsById(id);
     }
 
+    // OBTIENE TODOS LOS DEPARTAMENTOS DE UN EDIFICIO SEGUN UN ID
     public List<Departamento> getAllDeptOfBuilding(long id_edificio) {
         Edificio edif = edificioService.getEdificioByID(id_edificio);
         if (edif != null) {

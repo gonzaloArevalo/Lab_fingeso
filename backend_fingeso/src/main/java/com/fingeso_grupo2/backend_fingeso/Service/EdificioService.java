@@ -20,7 +20,7 @@ public class EdificioService {
         this.administradorService = administradorService;
     }
 
-    // ANIADIR OTRO EDIFICIO A LA BASE DE DATOS
+    // AÑADE UN EDIFICIO
     public Edificio addEdificio(Integer departamentosTotales,Integer departamentosOcupados,long id_admin) {
         Administrador admin = administradorService.getAdminByID(id_admin);
         if (admin == null) {
@@ -31,16 +31,17 @@ public class EdificioService {
         }
     }
 
-    // OBTENER EDIFICIO POR ID
+    // OBTIENE UN EDIFICIO POR SU ID
     public Edificio getEdificioByID(long id) {
         return edificioRepository.findById(id).orElse(null);
     }
 
-    // OBTENER A TODOS LOS EDIFICIOS
+    // OBTIENE A TODOS LOS EDIFICIOS
     public List<Edificio> getAllEdificios() {
         return (List<Edificio>) edificioRepository.findAll();
     }
 
+    // VERIFICA SI EXISTE UN EDIFICIO SEGUN SU ID
     public boolean existsById(Long id) {
         return edificioRepository.existsById(id);
     }

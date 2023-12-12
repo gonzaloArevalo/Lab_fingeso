@@ -29,6 +29,7 @@ public class GastoComunService {
         this.deudaService = deudaService;
     }
 
+    // AÑADE UN GASTO COMUN
     public GastoComun addGastoComun(String descripcion, Integer monto, long id_edificio, long id_subadministrador) {
         Edificio edif = edificioService.getEdificioByID(id_edificio);
         Subadministrador sub = subadministradorService.getSubadministradorByID(id_subadministrador);
@@ -42,6 +43,7 @@ public class GastoComunService {
         }
     }
 
+    // AÑADE UN GASTO COMUN POR UN ADMIN
     public GastoComun addGastoComunByAdmin(String descripcion, Integer monto, long id_edificio) {
         Edificio edif = edificioService.getEdificioByID(id_edificio);
         if (edif == null) {
@@ -57,14 +59,17 @@ public class GastoComunService {
         }
     }
 
+    // OBTIENE UN GASTOCOMUN POR SU ID
     public GastoComun getGastoComunById(long id) {
         return gastoComunRepository.findById(id).orElse(null);
     }
 
+    // OBTIENE TODOS LOS GASTOSCOMUNES
     public List<GastoComun> getAllGastosComunes() {
         return (List<GastoComun>) gastoComunRepository.findAll();
     }
 
+    // VERIFICA SI EXISTE UN GASTOCOMUN SEGUN SU ID
     public boolean existsById(Long id) {
         return gastoComunRepository.existsById(id);
     }

@@ -20,6 +20,7 @@ public class PersonalService {
         this.edificioService = edificioService;
     }
 
+    // AÑADE UN USUARIO PERSONAL
     public Personal personalAdd(Integer rut, String nombre, String contrasenia, String correo, Integer sueldo, long id_edificio){
         Edificio edificio = edificioService.getEdificioByID(id_edificio);
         if (edificio == null) {
@@ -30,14 +31,17 @@ public class PersonalService {
         }
     }
 
+    // OBTIENE UN USUARIO PERSONAL SEGUN SU ID
     public Personal getPersonalById(long id){
         return personalRepository.findById(id).orElse(null);
     }
 
+    // OBTIENE UN USUARIO PERSONAL SEGUN SU CORREO
     public Personal getPersonalByCorreo(String correo){
         return personalRepository.findByCorreo(correo).orElse(null);
     }
 
+    // OBTIENE A TODOS LOS USUARIOS PERSONAL
     public List<Personal> getAllPersonales() {
         return (List<Personal>) personalRepository.findAll();
     }

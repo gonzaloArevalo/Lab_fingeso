@@ -7,6 +7,7 @@ import com.fingeso_grupo2.backend_fingeso.Repository.DepartamentoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -46,5 +47,25 @@ public class DepartamentoService {
 
     public boolean existsById(Long id) {
         return departamentoRepository.existsById(id);
+    }
+
+    public List<Departamento> getAllDeptOfBuilding(long id_edificio) {
+        Edificio edif = edificioService.getEdificioByID(id_edificio);
+        if (edif != null) {
+            List<Departamento> depts = getAllDepartamentos();
+            List<Departamento> salida = new ArrayList<>();
+            for (int i = 0;i < depts.size();i++) {
+                if (depts.get(i).getEdificio().getId_edificio() == id_edificio) {
+                    salida.add(depts.get(i));
+                }
+            }
+            if (!salida.isEmpty()) {
+                return salida;
+            } else {
+                return null;
+            }
+        } else {
+            throw new RuntimeException("No se pudo encontrar al edificio con id: " + id_edificio);
+        }
     }
 }

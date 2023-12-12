@@ -22,10 +22,19 @@ public class GastoComunController {
     @Autowired
     private SubadministradorService subadministradorService;
 
+    @GetMapping("/getAll")
     public ResponseEntity<List<GastoComun>> getGastosComunes() {
         List<GastoComun> gastosComunes = null;
         gastosComunes = gastoComunService.getAllGastosComunes();
         return new ResponseEntity<List<GastoComun>>(gastosComunes, HttpStatus.OK);
+    }
+
+    @PostMapping("/addGasto/{id_edificio}/{monto}/{descripcion}")
+    public ResponseEntity<?> addGastoByAdmin(@PathVariable("id_edificio") long id_edificio,
+                                             @PathVariable("monto") Integer monto,
+                                             @PathVariable("descripcion") String descripcion) {
+        GastoComun gc = gastoComunService.addGastoComunByAdmin(descripcion,monto,id_edificio);
+        return new ResponseEntity<GastoComun>(gc,HttpStatus.OK);
     }
 
     @GetMapping("/findByID/{id_gastoComun}")
@@ -49,7 +58,7 @@ public class GastoComunController {
         } else if(!subadministradorService.existsById(idSubadmin)){
             return new ResponseEntity<String>("No se encontró al subadministrador con ID: " + idSubadmin, HttpStatus.NOT_FOUND);
         }
-        gastoComun1 = gastoComunService.addGastoComun(gastoComun.getDescripcion(), gastoComun.getMonto(), gastoComun.getFecha(), gastoComun.getEdificio().getId_edificio(), gastoComun.getSubadministrador().getId_subadmin());
+        gastoComun1 = gastoComunService.addGastoComun(gastoComun.getDescripcion(), gastoComun.getMonto(), gastoComun.getEdificio().getId_edificio(), gastoComun.getSubadministrador().getId_subadmin());
         return new ResponseEntity<GastoComun>(gastoComun1, HttpStatus.OK);
     }
 }

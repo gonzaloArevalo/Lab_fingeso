@@ -1,6 +1,7 @@
 package com.fingeso_grupo2.backend_fingeso.Controller;
 
 import com.fingeso_grupo2.backend_fingeso.Entity.Departamento;
+import com.fingeso_grupo2.backend_fingeso.Entity.Deuda;
 import com.fingeso_grupo2.backend_fingeso.Service.DepartamentoService;
 import com.fingeso_grupo2.backend_fingeso.Service.EdificioService;
 import com.fingeso_grupo2.backend_fingeso.Service.ResidenteService;
@@ -38,6 +39,12 @@ public class DepartamentoController {
         }
 
         return new ResponseEntity<Departamento>(departamento, HttpStatus.OK);
+    }
+
+    @GetMapping("/deptsPorEdificio/{id_edificio}")
+    public ResponseEntity<List<Departamento>> getDeptsPorIdEdificio(@PathVariable("id_edificio") long id_edificio) {
+        List<Departamento> depts = departamentoService.getAllDeptOfBuilding(id_edificio);
+        return new ResponseEntity<List<Departamento>>(depts,HttpStatus.OK);
     }
 
     @PostMapping("/register")

@@ -1,35 +1,39 @@
+<script>
+  export default {
+    name: "DefaultLayout",
+    data() {
+      return {
+        clipped: false,
+        drawer: false,
+        fixed: false,
+        title: "ADCe",
+      };
+    },
+  };
+</script>
+
 <template>
   <v-app>
+    <v-app-bar 
+    height="60px"
+    app
+    color="blue">
     
-    <v-app-bar :clipped-left="clipped" fixed app
-    color="blue">  
-      <v-toolbar-title>{{ title }}</v-toolbar-title>
+    <v-container>
+      <v-toolbar-title> ADCe </v-toolbar-title> 
+    </v-container>
+
       <v-spacer />
-      
     </v-app-bar>
+
     <v-main>
-      <v-container>
-        <Nuxt />
-      </v-container>
+      <Nuxt />
     </v-main>
-    
-    <v-footer :absolute="!fixed" app>
+
+    <v-footer :absolute="!fixed" app style="background-color: rgb(31, 121, 194); color: white;">
       <span>&copy; {{ new Date().getFullYear() }}</span>
     </v-footer>
     
   </v-app>
 </template>
 
-<script>
-export default {
-  name: "DefaultLayout",
-  data() {
-    return {
-      clipped: false,
-      drawer: false,
-      fixed: false,
-      title: "ADCe",
-    };
-  },
-};
-</script>

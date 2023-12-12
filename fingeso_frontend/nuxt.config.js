@@ -58,6 +58,8 @@ export default {
     "/residente/login/": 'http://localhost:8080',
     "/personal/login/": 'http://localhost:8080',
     "/edificio/getAll": 'http://localhost:8080',
+    "/departamento/deptsPorEdificio/": 'http://localhost:8080',
+    "/gastoComun/addGasto/" : 'http://localhost:8080',
   },
 
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify

@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 @Entity
@@ -29,10 +30,10 @@ public class GastoComun {
     @JoinColumn(name = "id_subadmin")
     private Subadministrador subadministrador;
 
-    public GastoComun(String descripcion, Integer monto, Date fecha, Edificio edificio, Subadministrador subadministrador){
+    public GastoComun(String descripcion, Integer monto, Edificio edificio, Subadministrador subadministrador){
         this.descripcion = descripcion;
         this.monto = monto;
-        this.fecha = fecha;
+        this.fecha = new Date();
         this.edificio = edificio;
         this.subadministrador = subadministrador;
     }

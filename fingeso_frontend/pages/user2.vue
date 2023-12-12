@@ -9,26 +9,20 @@ export default {
     };
   },
   created() {
-    // Accede a los parámetros de la ruta en el ciclo de vida created
     this.user = this.$route.params.user;
     this.id = this.$route.params.user.id_residente;
-
-    // Llama al método para obtener datos
   },
   methods:{
     async Deudas(){
-      this.$router.push({name: 'deudaspR', params:{id: this.id}});
+      this.$router.push({name: 'deudas_r', params:{id: this.id}});
     },
   },
 };
 </script>
 
-
-
-
 <template>
 <div>
-    <h1 v-if="user" class = "user-name"> Bienvenido {{ this.user.nombre }}</h1>
+    <h1 v-if="user" class = "user-name"> Bienvenid@ {{ this.user.nombre }}</h1>
   <p>
     Usted acaba de iniciar la aplicación, Esta diseñada con el fin de favorecer el
     uso simple de las cuentas de la comunidad establecida para que tenga una experiencia

@@ -1,10 +1,10 @@
 <template>
   <v-container fluid>
-    <h1 v-if="tipoUsuario === 1"> Vista de admin </h1>
-    <h1 v-if="tipoUsuario === 2"> Vista de residente </h1>
-    <h1 v-if="tipoUsuario === 3"> Vista de subadmin </h1>
-    <h1 v-if="tipoUsuario === 4"> Vista de personal </h1>
-    <v-row justify="center">
+    <h1 v-if="tipoUsuario === 1" class="text-center" style="margin-bottom: 20px; margin-top: 20px;"> Admin Login </h1>
+    <h1 v-if="tipoUsuario === 2" class="text-center" style="margin-bottom: 20px; margin-top: 20px;"> Residente Login </h1>
+    <h1 v-if="tipoUsuario === 3" class="text-center" style="margin-bottom: 20px; margin-top: 20px;"> Subadmin Login </h1>
+    <h1 v-if="tipoUsuario === 4" class="text-center" style="margin-bottom: 20px; margin-top: 20px;"> Personal Login </h1>
+    <v-row justify="center" class="mt-10 mb-10">
       <v-col cols="12" sm="8" md="6">
         <v-card class="elevation-12 pa-8" outlined>
           <v-form @submit.prevent="iniciarSesion">
@@ -59,7 +59,6 @@ export default {
             this.$router.push({ name: 'user4', params: { user: this.user } });
               break;
             default:
-              // Lógica para un tipo de usuario desconocido, si es necesario
               break;
           }
         } else {
@@ -68,7 +67,6 @@ export default {
         }
       } catch (error) {
         console.error('Error durante la autenticación:', error);
-        // Puedes establecer un mensaje de error genérico en caso de un fallo durante la autenticación
         this.errorMensaje = 'Correo o contraseña inválidos';
       }
     },
@@ -87,14 +85,9 @@ export default {
           await this.autenticar("/personal/login/" + this.correo + "/" + this.contrasena);
           break;
         default:
-          // Lógica para un tipo de usuario desconocido, si es necesario
           break;
       }
     },
   },
 };
 </script>
-  
-<style scoped>
-/* Agrega estilos personalizados aquí si es necesario */
-</style>

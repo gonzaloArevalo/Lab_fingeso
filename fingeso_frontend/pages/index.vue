@@ -1,6 +1,7 @@
 <script>
 
 export default {
+  name: 'index',
     methods: {
         async loginAdmin() {
             this.$router.push({ name: 'login', params: { userType: 1 } });
@@ -15,30 +16,31 @@ export default {
             this.$router.push({ name: 'login', params: { userType: 4 } });
         },
     }
-
-
 }
+
 </script>
 
 
 <template>
-    <v-row>
-        <v-col cols="12" class="text-center">
-            <h1 style="color: rgb(46, 46, 114);">
-                Seleccione una opción para iniciar sesión
-            </h1>
+    <v-container fluid>
+      <v-row class="text-center" style="flex-direction: column;">
+        <v-col cols="12" class="text-center" style="margin-bottom: 100px; margin-top: 50px;">
+          <h1 style="color: rgb(46, 46, 114);">
+            Seleccione una Opción para Iniciar Sesión
+          </h1>
         </v-col>
         <v-col>
-            <v-btn @click="loginAdmin"> LOGIN ADMIN</v-btn>
+          <v-btn @click="loginAdmin" class="mx-2 my-2" style="font-size: 30px; padding: 30px; min-width: 200px;" color="success"> LOGIN ADMIN</v-btn>
         </v-col>
         <v-col>
-            <v-btn @click="loginSubadmin"> LOGIN SUBADMIN</v-btn>
+          <v-btn @click="loginSubadmin" class="mx-2 my-2" style="font-size: 30px; padding: 30px; min-width: 200px;" color="success"> LOGIN SUBADMIN</v-btn>
         </v-col>
         <v-col>
-            <v-btn @click="loginResident"> LOGIN RESIDENTE</v-btn>
+          <v-btn @click="loginResident" class="mx-2 my-2" style="font-size: 30px; padding: 30px; min-width: 200px;" color="success"> LOGIN RESIDENTE</v-btn>
         </v-col>
         <v-col>
-            <v-btn @click="loginPersonal"> LOGIN PERSONAL</v-btn>
+          <v-btn @click="loginPersonal" class="mx-2 my-2" style="font-size: 30px; padding: 30px; min-width: 200px;" color="success"> LOGIN PERSONAL</v-btn>
         </v-col>
-    </v-row>
-</template>
+      </v-row>
+    </v-container>
+  </template>

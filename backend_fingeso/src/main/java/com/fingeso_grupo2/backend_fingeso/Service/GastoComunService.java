@@ -1,5 +1,6 @@
 package com.fingeso_grupo2.backend_fingeso.Service;
 
+import com.fingeso_grupo2.backend_fingeso.Entity.Departamento;
 import com.fingeso_grupo2.backend_fingeso.Entity.GastoComun;
 import com.fingeso_grupo2.backend_fingeso.Entity.Subadministrador;
 import com.fingeso_grupo2.backend_fingeso.Entity.Edificio;
@@ -16,15 +17,19 @@ public class GastoComunService {
     private final GastoComunRepository gastoComunRepository;
     private final EdificioService edificioService;
     private final SubadministradorService subadministradorService;
+    private final DepartamentoService departamentoService;
+    private final DeudaService deudaService;
 
     @Autowired
-    public GastoComunService(GastoComunRepository gastoComunRepository, EdificioService edificioService, SubadministradorService subadministradorService){
+    public GastoComunService(DeudaService deudaService,GastoComunRepository gastoComunRepository, EdificioService edificioService, SubadministradorService subadministradorService, DepartamentoService departamentoService){
         this.gastoComunRepository = gastoComunRepository;
         this.edificioService = edificioService;
         this.subadministradorService = subadministradorService;
+        this.departamentoService = departamentoService;
+        this.deudaService = deudaService;
     }
 
-    public GastoComun addGastoComun(String descripcion, Integer monto, Date fecha, long id_edificio, long id_subadministrador) {
+    public GastoComun addGastoComun(String descripcion, Integer monto, long id_edificio, long id_subadministrador) {
         Edificio edif = edificioService.getEdificioByID(id_edificio);
         Subadministrador sub = subadministradorService.getSubadministradorByID(id_subadministrador);
         if (edif == null) {
@@ -32,7 +37,22 @@ public class GastoComunService {
         } else if(sub == null){
             throw new RuntimeException("No se pudo encontrar al subadministrador con id: " + id_subadministrador);
         } else {
-            GastoComun gastoComun = new GastoComun(descripcion, monto, fecha, edif, sub);
+            GastoComun gastoComun = new GastoComun(descripcion, monto, edif, sub);
+            return gastoComunRepository.save(gastoComun);
+        }
+    }
+
+    public GastoComun addGastoComunByAdmin(String descripcion, Integer monto, long id_edificio) {
+        Edificio edif = edificioService.getEdificioByID(id_edificio);
+        if (edif == null) {
+            throw new RuntimeException("No se pudo encontrar el edificio con id: " + id_edificio);
+        } else {
+            GastoComun gastoComun = new GastoComun(descripcion, monto, edif, null);
+            List<Departamento> depts = departamentoService.getAllDeptOfBuilding(id_edificio);
+            Integer dist = monto / depts.size();
+            for (int i = 0;i < depts.size();i++) {
+                deudaService.addDeuda(descripcion,dist,depts.get(i).getId_departamento());
+            }
             return gastoComunRepository.save(gastoComun);
         }
     }

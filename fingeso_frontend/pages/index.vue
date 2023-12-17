@@ -2,6 +2,7 @@
 
 <template>
   <v-container fluid>
+    <v-card class="elevation-12 pa-8">
     <v-row class="text-center" style="flex-direction: column">
       <v-col
         cols="12"
@@ -53,6 +54,7 @@
           >
       </v-col>
     </v-row>
+  </v-card>
   </v-container>
 </template>
 

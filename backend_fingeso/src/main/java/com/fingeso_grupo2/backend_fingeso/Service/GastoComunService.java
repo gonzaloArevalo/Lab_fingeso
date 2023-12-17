@@ -51,9 +51,12 @@ public class GastoComunService {
         } else {
             GastoComun gastoComun = new GastoComun(descripcion, monto, edif, null);
             List<Departamento> depts = departamentoService.getAllDeptOfBuilding(id_edificio);
-            Integer dist = monto / depts.size();
+            Float totalM2 = edificioService.getM2FromBuilding(id_edificio);
             for (int i = 0;i < depts.size();i++) {
-                deudaService.addDeuda(descripcion,dist,depts.get(i).getId_departamento());
+                Float deptM2 = departamentoService.getTotalM2(depts.get(i).getId_departamento());
+                Float porcentaje = deptM2/totalM2;
+                Integer monto2 = (int) (porcentaje*monto);
+                deudaService.addDeuda(descripcion,monto2,depts.get(i).getId_departamento());
             }
             return gastoComunRepository.save(gastoComun);
         }

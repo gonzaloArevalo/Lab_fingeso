@@ -57,7 +57,7 @@ public class DepartamentoController {
         } else if(!residenteService.existsById(idResidente)){
             return new ResponseEntity<String>("No se encontró al residente con ID: " + idResidente, HttpStatus.NOT_FOUND);
         }
-        departamento1 = departamentoService.addDepartamento(departamento.getEstacionamiento(), departamento.getBodega(), departamento.getEdificio().getId_edificio(), departamento.getResidente().getId_residente());
+        departamento1 = departamentoService.addDepartamento(departamento.getDepartamento_m2(),departamento.getEstacionamiento_m2(), departamento.getBodega_m2(), departamento.getEdificio().getId_edificio(), departamento.getResidente().getId_residente());
         return new ResponseEntity<Departamento>(departamento1, HttpStatus.OK);
     }
 }

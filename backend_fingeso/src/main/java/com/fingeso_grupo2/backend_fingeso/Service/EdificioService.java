@@ -1,6 +1,7 @@
 package com.fingeso_grupo2.backend_fingeso.Service;
 
 import com.fingeso_grupo2.backend_fingeso.Entity.Administrador;
+import com.fingeso_grupo2.backend_fingeso.Entity.Departamento;
 import com.fingeso_grupo2.backend_fingeso.Entity.Edificio;
 import com.fingeso_grupo2.backend_fingeso.Repository.EdificioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +14,7 @@ public class EdificioService {
 
     private final EdificioRepository edificioRepository;
     private final AdministradorService administradorService;
+    private DepartamentoService departamentoService;
 
     @Autowired
     public EdificioService(EdificioRepository edificioRepository,AdministradorService administradorService) {
@@ -44,5 +46,15 @@ public class EdificioService {
     // VERIFICA SI EXISTE UN EDIFICIO SEGUN SU ID
     public boolean existsById(Long id) {
         return edificioRepository.existsById(id);
+    }
+
+    // OBTIENE LOS METROS CUADRADOS TOTALES DEL EDIFICIO
+    public Float getM2FromBuilding(long id) {
+        Float totalM2 = 0.0F;
+        List<Departamento> depts = departamentoService.getAllDeptOfBuilding(id);
+        for (int i = 0;i < depts.size();i++) {
+            totalM2 += depts.get(i).getDepartamento_m2() + depts.get(i).getBodega_m2() + depts.get(i).getEstacionamiento_m2();
+        }
+        return totalM2;
     }
 }

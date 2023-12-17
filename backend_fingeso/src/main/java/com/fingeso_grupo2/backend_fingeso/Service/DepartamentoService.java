@@ -25,7 +25,7 @@ public class DepartamentoService {
     }
 
     // AÑADE UN DEPARTAMENTO
-    public Departamento addDepartamento(Boolean estacionamiento, Boolean bodega, long id_edificio, long id_residente) {
+    public Departamento addDepartamento(Float departamento_m2, Float estacionamiento_m2, Float bodega_m2, long id_edificio, long id_residente) {
         Edificio edif = edificioService.getEdificioByID(id_edificio);
         Residente res = residenteService.getResidenteByID(id_residente);
         if (edif == null) {
@@ -33,7 +33,7 @@ public class DepartamentoService {
         } else if(res == null){
                 throw new RuntimeException("No se pudo encontrar al residente con id: " + id_residente);
         } else {
-            Departamento departamento = new Departamento(estacionamiento, bodega, edif, res);
+            Departamento departamento = new Departamento(departamento_m2, estacionamiento_m2,bodega_m2, edif, res);
             return departamentoRepository.save(departamento);
         }
     }
@@ -72,5 +72,12 @@ public class DepartamentoService {
         } else {
             throw new RuntimeException("No se pudo encontrar al edificio con id: " + id_edificio);
         }
+    }
+
+    // OBTIENE EL TOTAL DE M2 OCUPADOS POR EL DEPARTAMENTO
+    public Float getTotalM2(long id) {
+        Departamento dept = getDepartamentoByID(id);
+        Float totalM2 = dept.getDepartamento_m2() + dept.getEstacionamiento_m2() + dept.getBodega_m2();
+        return totalM2;
     }
 }

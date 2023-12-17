@@ -15,8 +15,9 @@ public class Departamento {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(unique = true, nullable = false)
     private long id_departamento;
-    private Boolean estacionamiento;
-    private Boolean bodega;
+    private Float departamento_m2;
+    private Float estacionamiento_m2;
+    private Float bodega_m2;
 
     @ManyToOne
     @JoinColumn(name = "id_edificio")
@@ -26,9 +27,10 @@ public class Departamento {
     @JoinColumn(name = "id_residente")
     private Residente residente;
 
-    public Departamento(Boolean estacionamiento, Boolean bodega, Edificio edificio, Residente residente){
-        this.estacionamiento = estacionamiento;
-        this.bodega = bodega;
+    public Departamento(Float departamento_m2, Float estacionamiento_m2, Float bodega_m2, Edificio edificio, Residente residente){
+        this.departamento_m2 = departamento_m2;
+        this.estacionamiento_m2 = estacionamiento_m2;
+        this.bodega_m2 = bodega_m2;
         this.edificio = edificio;
         this.residente = residente;
     }

@@ -19,14 +19,14 @@
             </v-list-item>
           </v-list-item-group>
         </v-list>
-      </v-card>
-    </v-container>
-    <v-btn
+        <v-btn
       width="300px"
       height="50px"
       href="https://login.portal.bancochile.cl/bancochile-web/persona/login/#/login"
       >Pagar</v-btn
     >
+      </v-card>
+    </v-container>
   </v-app>
 </template>
 

@@ -20,7 +20,7 @@ export default {
     color="blue">
     
     <v-container>
-      <v-toolbar-title> ADCe </v-toolbar-title> 
+      <v-toolbar-title class="font-italic font-weight-bold"> ADCe </v-toolbar-title> 
     </v-container>
 
       <v-spacer />
@@ -41,4 +41,11 @@ export default {
 </template>
 
 <style>
+.font-italic {
+    font-style: italic;
+  }
+
+  .font-weight-bold {
+    font-weight: bold;
+  }
 </style>

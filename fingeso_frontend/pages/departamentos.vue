@@ -14,16 +14,6 @@
                 <v-list-item-subtitle>
                   Residente: {{ dept.residente.nombre }}
                 </v-list-item-subtitle>
-                <v-list-item-subtitle v-if="dept.estacionamiento"
-                  >Estacionamiento: Sí</v-list-item-subtitle
-                >
-                <v-list-item-subtitle v-else
-                  >Estacionamiento: No</v-list-item-subtitle
-                >
-                <v-list-item-subtitle v-if="dept.bodega"
-                  >Bodega: Sí</v-list-item-subtitle
-                >
-                <v-list-item-subtitle v-else>Bodega: No</v-list-item-subtitle>
               </v-list-item-content>
             </v-list-item>
           </v-list-item-group>

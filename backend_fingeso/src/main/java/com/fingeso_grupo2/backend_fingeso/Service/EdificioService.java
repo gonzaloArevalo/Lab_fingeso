@@ -7,6 +7,7 @@ import com.fingeso_grupo2.backend_fingeso.Repository.EdificioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -14,7 +15,6 @@ public class EdificioService {
 
     private final EdificioRepository edificioRepository;
     private final AdministradorService administradorService;
-    private DepartamentoService departamentoService;
 
     @Autowired
     public EdificioService(EdificioRepository edificioRepository,AdministradorService administradorService) {
@@ -48,13 +48,4 @@ public class EdificioService {
         return edificioRepository.existsById(id);
     }
 
-    // OBTIENE LOS METROS CUADRADOS TOTALES DEL EDIFICIO
-    public Float getM2FromBuilding(long id) {
-        Float totalM2 = 0.0F;
-        List<Departamento> depts = departamentoService.getAllDeptOfBuilding(id);
-        for (int i = 0;i < depts.size();i++) {
-            totalM2 += depts.get(i).getDepartamento_m2() + depts.get(i).getBodega_m2() + depts.get(i).getEstacionamiento_m2();
-        }
-        return totalM2;
-    }
 }

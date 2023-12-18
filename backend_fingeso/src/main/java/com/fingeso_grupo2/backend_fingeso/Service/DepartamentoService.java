@@ -80,4 +80,15 @@ public class DepartamentoService {
         Float totalM2 = dept.getDepartamento_m2() + dept.getEstacionamiento_m2() + dept.getBodega_m2();
         return totalM2;
     }
+
+    // OBTIENE LOS METROS CUADRADOS TOTALES DEL EDIFICIO
+    public Float getM2FromBuilding(long id) {
+        Float totalM2 = 0.0F;
+        List<Departamento> depts = getAllDeptOfBuilding(id);
+        for (int i = 0;i < depts.size();i++) {
+            totalM2 += depts.get(i).getDepartamento_m2() + depts.get(i).getBodega_m2() + depts.get(i).getEstacionamiento_m2();
+        }
+        return totalM2;
+    }
+
 }

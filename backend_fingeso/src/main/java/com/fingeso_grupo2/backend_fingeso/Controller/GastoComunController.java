@@ -34,7 +34,11 @@ public class GastoComunController {
                                              @PathVariable("monto") Integer monto,
                                              @PathVariable("descripcion") String descripcion) {
         GastoComun gc = gastoComunService.addGastoComunByAdmin(descripcion,monto,id_edificio);
-        return new ResponseEntity<GastoComun>(gc,HttpStatus.OK);
+        if (gc == null) {
+            return new ResponseEntity<String>("NOFUNCIONAAAXD",HttpStatus.NOT_FOUND);
+        } else {
+            return new ResponseEntity<GastoComun>(gc,HttpStatus.OK);
+        }
     }
 
     @GetMapping("/findByID/{id_gastoComun}")
